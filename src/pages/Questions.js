@@ -16,7 +16,6 @@ const Questions = () => {
     let apiUrl = `/api.php?amount=10`
 
     const { response, error, loading } = useAxios({ url: apiUrl })
-    console.log(response)
 
     return (
         <Box>
