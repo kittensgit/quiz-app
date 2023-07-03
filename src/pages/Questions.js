@@ -1,12 +1,12 @@
 import { Button, CircularProgress, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { decode } from "html-entities";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import useAxios from "../hooks/useAxios";
 import { handleScoreChange } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
-import { decode } from "html-entities";
 
 const getRandomInt = (max) => {
     return Math.floor(Math.random() * Math.floor(max));
@@ -72,13 +72,11 @@ const Questions = () => {
         }
     };
 
-    console.log(response.results[questionIndex])
-
     return (
         <Box>
             <Typography variant="h4">Questions {questionIndex + 1}</Typography>
             <Typography mt={5}>
-                {decode(response.results[questionIndex]?.question)}
+                {decode(response.results[questionIndex].question)}
             </Typography>
             {options.map((data, id) => (
                 <Box mt={2} key={id}>
