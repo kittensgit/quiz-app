@@ -12,10 +12,20 @@ const Questions = () => {
         amount_of_question,
         score
     } = useSelector(state => state)
-
-    let apiUrl = `/api.php?amount=10`
+    
+    let apiUrl = `/api.php?amount=${amount_of_question}`
+    if(question_category){
+        apiUrl = apiUrl.concat(`&category=${question_category}`)
+    }
+    if(question_difficulty){
+        apiUrl = apiUrl.concat(`&difficulty=${question_difficulty}`)
+    }
+    if(question_type){
+        apiUrl = apiUrl.concat(`&type=${question_type}`)
+    }
 
     const { response, error, loading } = useAxios({ url: apiUrl })
+    console.log(response)
 
     return (
         <Box>

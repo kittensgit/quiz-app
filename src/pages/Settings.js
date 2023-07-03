@@ -3,10 +3,12 @@ import React from 'react'
 import SelectField from '../components/SelectField'
 import TextFieldComp from '../components/TextFieldComp'
 import useAxios from '../hooks/useAxios'
+import { useNavigate } from 'react-router-dom'
 
 const Settings = () => {
 
     const { response, error, loading } = useAxios({ url: "/api_category.php" });
+    const history = useNavigate()
 
     if (loading) {
         return (
@@ -37,6 +39,7 @@ const Settings = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        history('/questions')
     }
 
     return (
