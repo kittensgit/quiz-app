@@ -43,6 +43,7 @@ const Settings = () => {
 
     return (
         <form onSubmit={handleSubmit}>
+            <Typography variant="h2" fontWeight={'bold'}>Quiz App</Typography>
             <SelectField options={response.trivia_categories} label="Category" />
             <SelectField options={difficultyOptions} label="Difficulty" />
             <SelectField options={typeOptions} label="Type" />

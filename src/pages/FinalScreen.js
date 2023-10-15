@@ -1,9 +1,9 @@
-import { Button, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { handleAmountChange, handleScoreChange } from "../redux/actions";
-import { useNavigate } from "react-router-dom";
+import { Button, Typography } from '@mui/material';
+import { Box } from '@mui/system';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { handleAmountChange, handleScoreChange } from '../redux/actions';
+import { useNavigate } from 'react-router-dom';
 
 const FinalScreen = () => {
     const disptach = useDispatch();
@@ -13,7 +13,7 @@ const FinalScreen = () => {
     const handleBackToSettings = () => {
         disptach(handleScoreChange(0));
         disptach(handleAmountChange(50));
-        history("/");
+        history('/quiz-app');
     };
 
     return (
